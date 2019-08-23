@@ -1,0 +1,140 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color: blanchedalmond;
+            color: black;
+            text-align: center;
+        }
+        div {
+            width: 60%;
+            margin : 15px auto;
+            padding: 10px;
+        }
+        div.mainText {
+            border: 5px solid black;
+        }
+        div.offText {
+            border: 1px solid black;
+        }
+        div.clicked {
+            background-color: black;
+            color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal Info App</h1>
+    <div class="mainText">
+    <h3>My Summer</h3>
+    <p>During the summer I went down to Florida to compete at nationals for diving. It was a great experince and can't wait to go back next year. I also went to North Caroline for a family vacation. The best thing tht I did on that vacation was proabaly jet skiing.</p>
+    <img src = "beach.JPG" width=200 id='img1'>
+    </div>
+    <div class="mainText">
+    <h3>Plans After Highschool</h3>
+    <p>I plan to go college (not sure where yet) and study pharmaceuticals. Also I plan to dive in college.</p>
+    </div>
+    <div class="mainText">
+    <h3>Family</h3>
+    <p>My family consists of my sister, mother, and two dogs. The sisters name is Julia and the two dogs are named Bob and Tracy</p>
+    </div>
+    <div class="mainText">
+    <h3>Dive Career</h3>
+    <p>I have been diving for almost a year now. I have improved a lot over that year. I went to states and after the highschool season I went to nationals.</p>
+    <img src = "Stone.JPG" width=150>
+    </div>
+</body>
+    <script>
+        //let name = "George Peuhl"
+        //let age = 18
+        
+        //person is an object
+        let person = {
+            //key : value (Key value pairs)
+            "firstName"  : "George",
+            "lastName" : "Peuhl",
+            "age" : 18,
+            "favColor" : "Magenta",
+            "siblings" : ["Julia"],
+            "favArtists" : ["Samsa", "Twenty One Pilots"],
+            "favSports" : ["Gymnastics", "Diving"],
+            "favVideoGames" : ["Rocket League", "TABS"],
+            "hobbies" : ["Paintballing, Studying WW2"],
+        }
+        console.log(person)
+        console.log(person.age)
+        
+        /*let elem = document.createElement('h3')
+        elem.innerHTML = person.firstName
+        document.body.appendChild(elem)*/
+        
+        let elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Name</h3>
+        ${person.firstName} ${person.lastName}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Age</h3>
+        ${person.age}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Favorite Color</h3>
+        ${person.favColor}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Siblings</h3>
+        ${person.siblings}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Favorite Artists</h3>
+        ${person.favArtists}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Favorite Sports</h3>
+        ${person.favSports}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Favorite Video Games</h3>
+        ${person.favVideoGames}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add(`offText`)
+        elem.innerHTML = `<h3>Hobbies</h3>
+        ${person.hobbies}`
+        document.body.appendChild(elem)
+        
+        //Gets references to elements on the page
+        let divs = document.querySelectorAll("div")
+        for (let i = 0; i < divs.length; i++) {
+            let div = divs[i]
+            div.addEventListener('click', handleClick)
+        }
+        
+        function handleClick(abcd) {
+            //abcd.target.style.backgroundColor = 'white'
+            abcd.target.classList.toggle("clicked")
+        }
+        
+        let img1 = document.querySelector('#img1').addEventListener("click", handleImg)
+        
+        function handleImg(efg) {
+            if (efg.target.width == 200)
+                efg.target.width = 50;
+            else 
+                efg.target.width = 200
+        }
+    </script>
+</html>
